@@ -1,0 +1,19 @@
+{
+  "name": "ionic-chat",
+  "version": "1.0.0",
+  "description": "A websocket server for chatting",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivernaloo/ionic-chat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivernaloo/ionic-chat/issues"
+  },
+  "homepage": "https://github.com/ivernaloo/ionic-chat#readme"
+}
