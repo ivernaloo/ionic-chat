@@ -2,6 +2,7 @@ angular.module('ionic-chat-app-controllers', [])
   .controller('ChatController', function($scope, ChatService){
 
   // The chat message
+    // global message collection
   $scope.messages = [];
 
   // Notify whenever a new user connects
@@ -15,7 +16,7 @@ angular.module('ionic-chat-app-controllers', [])
   // Whenever a new message apperas, append it
   ChatService.on.messageReceived(function(message){
     message.external = true;
-    $scope.messages.push(message);
+    $scope.messages.push(message); // add the external message to the global
   });
 
   $scope.inputMessage = '';
@@ -27,10 +28,10 @@ angular.module('ionic-chat-app-controllers', [])
 
     // Send the message to the server
     ChatService.emit({
-      name: 'Anonymous',
+      name: 'Anonymous',  // add global message
       text: $scope.inputMessage
     });
     // Clear the chatbox
-    $scope.inputMessage = '';
+    $scope.inputMessage = ''; // clear
   }
 });

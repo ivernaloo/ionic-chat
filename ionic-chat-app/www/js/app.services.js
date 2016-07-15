@@ -6,19 +6,24 @@ angular.module('ionic-chat-app-services', [])
 
     // Bridge events from the Websocket connection to the rootScope
     socket.on('UserConnectedEvent', function(user){
-      $rootScope.emit('UserConnectedEvent', user); // publish the global event
+      console.log("UserConnectedEvent to client");
+      socket.emit('UserConnectedEvent', user); // publish the global event
     });
     socket.on('MessageReceivedEvent', function(message){
-      $rootScope.emit('MessageReceivedEvent', message); // publish global event
+      console.log("MessageReceivedEvent");
+      socket.emit('MessageReceivedEvent', message); // publish global event
     });
 
     /*
     * Send a message to the server
+    * bind this to the scope
     * @param message
     * */
     this.emit = function (message) {
+      console.log("send message  : ", message);
       socket.emit('MessageSentEvent', message);  // send the message to the server
     };
+
     this.on = {
       // user connect
       userConnected: function (callback) {

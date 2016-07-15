@@ -4,7 +4,8 @@
   "description": "A websocket server for chatting",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "cd ionic-chat-server && nodemon server.js",
+    "start" : "node ionic-chat-server/server.js && cd ionic-chat-app && ionic serve -l"
   },
   "repository": {
     "type": "git",
