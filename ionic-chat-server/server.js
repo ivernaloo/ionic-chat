@@ -2,7 +2,7 @@ var http = require('http');
 var url = require('url');
 var fs = require('fs');
 var server = http.createServer(function(req, res){
-    var parseUrl = urlparse(req.url, true);
+    var parseUrl = url.parse(req.url, true);
     switch (parseUrl.pathname){
         case '/':
             // Read the file into memory and push it to the client
@@ -39,3 +39,4 @@ websocket.on('UserConnectedEvent', function(socket){
     });
 });
 server.listen(8080);
+console.log("listen to 8080");

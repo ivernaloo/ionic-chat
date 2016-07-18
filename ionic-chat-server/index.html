@@ -28,7 +28,7 @@
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">
-        var websocket = io();
+        var websocket = io('http://localhost:8080');
         var appendChatMessage = function(sender, message){
             $('#chat-view').append($('<li>')).text(sender + ': ' + message); // apend the text into the chatbox
         };
@@ -43,12 +43,12 @@
             };
             appendChatMessage(chatData.name, chatData.message);
             clearChatField();
-            websocket.emit('newChatMessage', chatData); // publish the event
+            websocket.emit('MessageSentEvent', chatData); // publish the event
             return false;
         });
 
         // Update the state of the chat when we receive a new chat message
-        websocket.on('new chat message', function(chatData){
+        websocket.on('MessageReceivedEvent', function(chatData){
             appendChatMessage(chatData.name, chatData.message);
         })
     </script>
