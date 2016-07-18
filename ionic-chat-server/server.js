@@ -23,19 +23,19 @@ var server = http.createServer(function(req, res){
 var websocket = require('socket.io')(server);
 
 // create a handler for incoming websocket connections
-websocket.on('UserConnectedEvent', function(socket){
-    console.log("New user connnected");
+websocket.on('connection', function(socket){
+    console.log("server: New user connnected");
 
     // Tell others a new connected
     socket.broadcast.emit('UserConnectedEvent', null);
 
     // Bind event handler for incoming messages
     socket.on('MessageSentEvent', function(chatData){
-        console.log('Received new chat message');
+        console.log('server: Received new chat message');
 
         // By using the 'broadcast' connector, we will
         // send the message to everyone except the send.
-        socket.broadcast.emit('MessageReceiveEvent', chatData);
+        socket.broadcast.emit('MessageReceivedEvent', chatData);
     });
 });
 server.listen(8080);

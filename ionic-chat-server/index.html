@@ -43,12 +43,14 @@
             };
             appendChatMessage(chatData.name, chatData.message);
             clearChatField();
+            console.log("client : MessageSentEvent");
             websocket.emit('MessageSentEvent', chatData); // publish the event
             return false;
         });
 
         // Update the state of the chat when we receive a new chat message
         websocket.on('MessageReceivedEvent', function(chatData){
+            console.log("client : MessageReceivedEvent");
             appendChatMessage(chatData.name, chatData.message);
         })
     </script>
