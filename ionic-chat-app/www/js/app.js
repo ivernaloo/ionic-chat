@@ -6,7 +6,8 @@
 angular.module('ionic-chat-app',
   [
     'ionic',
-    'ionic-chat-app-services'
+    'ionic-chat-app-services',
+    'ionic-chat-app-controllers'
   ])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -35,7 +36,8 @@ angular.module('ionic-chat-app',
     })
     .state('app.chat', {
       url: '/chat',
-      templateUrl: 'templates/app-chat.html'
+      templateUrl: 'templates/app-chat.html',
+      controller: 'ChatController'
     });
   $urlRouterProvider.otherwise('/app/chat');
 });
