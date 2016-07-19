@@ -3,7 +3,7 @@ angular.module('ionic-chat-app-directives',
         'ionic-chat-app-services'
     ])
 
-    .directive('Chat', function (ChatService) {
+    .directive('chat', function (ChatService) {
         console.log('Loverzxcr');
 
         return {
