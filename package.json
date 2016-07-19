@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "cd ionic-chat-server && nodemon server.js"
+    "server": "cd ionic-chat-server && nodemon server.js",
+    "roomserver": "cd ionic-chat-server && nodemon server.room.js"
   },
   "repository": {
     "type": "git",
